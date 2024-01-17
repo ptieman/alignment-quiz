@@ -1,5 +1,8 @@
 // Dummy data for questions
-export const Questions = [
+
+
+export const Questions = () => { 
+  return [
   {
     id: 1,
     question: "What is the capital of France?",
@@ -51,3 +54,4 @@ export const Questions = [
     options: ["a", "b", "c", "d"],
   },
 ]
+}
