@@ -6,8 +6,10 @@ const Question = ({questions}) => {
     <>
     <ul>
     {questions.map((question) => (
+          <>
           <li key={question.id}>{question.question}</li>
-
+          <li key={question.id}>{question.options}</li>
+          </>
         ))}
       </ul>
     </>
