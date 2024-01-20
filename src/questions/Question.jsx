@@ -1,30 +1,35 @@
-import { React, useState } from 'react';
-import { Questions } from './Questions';
-
+import { React, useState } from "react";
+import { Questions } from "./Questions"
 
 const Question = () => {
-  const questions = Questions();
+  const questions = Questions()
+
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState(null);
+
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
   };
+
   const handleNextQuestion = () => {
-    setSelectedOption('');
+    // Move to the next question
     setCurrentQuestion(currentQuestion + 1);
+    setSelectedOption(null);
   };
 
   return (
-    <>
-    {/* {questions.map((question) => ( */}
-          <h3>{questions[currentQuestion].question}</h3>
+    <div>
+      {currentQuestion < questions.length ? (
+        <div>
+          <h3>Question {currentQuestion + 1}</h3>
+          <p>{questions[currentQuestion].question}</p>
           <ul>
-          {questions[currentQuestion].options.map((option, index) => (
-              <li key={index}>
+            {questions[currentQuestion].options.map((option) => (
+              <li key={option}>
                 <label>
                   <input
                     type="radio"
-                    name="options"
                     value={option}
                     checked={selectedOption === option}
                     onChange={() => handleOptionSelect(option)}
@@ -32,11 +37,17 @@ const Question = () => {
                   {option}
                 </label>
               </li>
-              ))}
-            </ul>
-            <button onClick={handleNextQuestion}>Next Question</button>
-    </>
-  )
-}
+            ))}
+          </ul>
+          <button onClick={handleNextQuestion}>Next</button>
+        </div>
+      ) : (
+        <div>
+          <h3>Quiz Completed!</h3>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default Question;

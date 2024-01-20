@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Question from './questions/Question';
-import { Questions } from './questions/Questions';
+// import { Questions } from './questions/Questions';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Question questions={Questions}/>
+    <Question/>
   </React.StrictMode>
 );
 
