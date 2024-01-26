@@ -13,14 +13,13 @@ const Question = () => {
   };
 
   const handleNextQuestion = () => {
-    // Move to the next question
     setCurrentQuestion(currentQuestion + 1);
     setSelectedOption(null);
   };
 
   return (
     <div>
-      {currentQuestion < questions.length ? (
+      {currentQuestion < (questions.length - 1) ? (
         <div>
           <h3>Question {currentQuestion + 1}</h3>
           <p>{questions[currentQuestion].question}</p>

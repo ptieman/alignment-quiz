@@ -1,12 +1,13 @@
 // Dummy data for questions
 
-
 export const Questions = () => { 
   return [
   {
     id: 1,
     question: "What is the capital of France?",
-    options: ["a", "b", "c", "d"],
+    options: [
+      {"a" : 1}
+    ]
   },
   {
     id: 2,
